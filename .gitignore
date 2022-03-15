@@ -1,0 +1,9 @@
+### JetBrains ###
+/.idea/
+
+### Composer ###
+/vendor/
+/composer.lock
+
+### ENV ###
+/.env.local

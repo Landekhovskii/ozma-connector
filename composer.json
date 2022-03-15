@@ -1,0 +1,46 @@
+{
+  "name": "landekhovskii/ozma-connector",
+  "description": "Universal connector for ozma.io",
+  "version": "1.0.0",
+  "type": "library",
+  "keywords": [
+    "ozma",
+    "ozma.io",
+    "api",
+    "connector"
+  ],
+  "homepage": "https://github.com/landekhovskii/ozma-connector",
+  "time": "2022-03-15",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Evgenii Landekhovskii",
+      "email": "evgenii@landekhovskii.pro",
+      "homepage": "https://landekhovskii.pro",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "email": "evgenii@landekhovskii.pro",
+    "issues": "https://github.com/landekhovskii/ozma-connector/issues",
+    "source": "https://github.com/landekhovskii/ozma-connector"
+  },
+  "require": {
+    "php": ">=7.4",
+    "symfony/http-client": "^5.4",
+    "symfony/cache": "^5.4",
+    "symfony/dotenv": "^5.4",
+    "ext-json": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Landekhovskii\\OzmaConnector\\": ""
+    }
+  },
+  "minimum-stability": "stable",
+  "scripts": {
+    "post-package-install": [
+      "cat vendor/landekhovskii/ozma-connector/.env >> .env"
+    ]
+  }
+}
