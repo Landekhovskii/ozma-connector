@@ -17,7 +17,7 @@ class Auth
     /**
      *
      */
-    const CACHE_NAMESPACE = 'ozma';
+    const CACHE_NAMESPACE = 'ozma.tokens';
 
     /**
      *
@@ -27,7 +27,7 @@ class Auth
     /**
      *
      */
-    const CACHE_DIRECTORY = '../cache';
+    const CACHE_DIRECTORY = '../var/cache';
 
     /**
      *
