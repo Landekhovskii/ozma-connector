@@ -39,6 +39,11 @@ class Transactions
     private array $response;
 
     /**
+     * @var string $errorMessage
+     */
+    private string $errorMessage;
+
+    /**
      * @param string|null $dataUrl
      */
     public function __construct(?string $dataUrl = null)
@@ -47,6 +52,7 @@ class Transactions
         $this->auth = new Auth();
 
         $this->setDataUrl($dataUrl ?? $_ENV['OZMA_DATA_URL'] . '/transaction');
+        $this->setErrorMessage('');
     }
 
     /**
@@ -106,11 +112,34 @@ class Transactions
     }
 
     /**
+     * @param string $errorMessage
+     */
+    public function setErrorMessage(string $errorMessage)
+    {
+        $this->errorMessage = $errorMessage;
+    }
+
+    /**
+     * @return string
+     */
+    public function gerErrorMessage(): string
+    {
+        return $this->errorMessage;
+    }
+
+    /**
      *
      */
     public function prepareResponse(): void
     {
         $response = $this->getResponse();
+
+        if (isset($response['error'])) {
+            $this->setErrorMessage($response['message']);
+            $this->setResponse([]);
+            return;
+        }
+
         $this->setResponse($response['results']);
     }
 
@@ -151,7 +180,7 @@ class Transactions
             'json' => $this->getRequestBody()
         ]);
 
-        $content = $response->toArray();
+        $content = $response->toArray(false);
         $this->setResponse($content);
 
         $this->prepareResponse();
