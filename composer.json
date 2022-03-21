@@ -1,7 +1,7 @@
 {
   "name": "landekhovskii/ozma-connector",
   "description": "Universal connector for ozma.io",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "library",
   "keywords": [
     "ozma",
@@ -10,7 +10,7 @@
     "connector"
   ],
   "homepage": "https://github.com/landekhovskii/ozma-connector",
-  "time": "2022-03-17",
+  "time": "2022-03-22",
   "license": "MIT",
   "authors": [
     {
